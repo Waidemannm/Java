@@ -29,3 +29,13 @@ O sistema tem como objetivo:
 - Banco de Dados (Oracle)
 
 ## 📂 Estrutura do Projeto
+
+
+## 🚀 Como Executar
+1. Clonar o repositório
+2. Importar na IDE (IntelliJ / Eclipse)
+3. Configurar banco de dados
+4. Executar a aplicação
+
+## 👨‍💻 Autor
+Moisés Waidemann
