@@ -28,8 +28,6 @@ O sistema tem como objetivo:
 - Maven 
 - Banco de Dados (Oracle)
 
-## 📂 Estrutura do Projeto
-
 
 ## 🚀 Como Executar
 1. Clonar o repositório
