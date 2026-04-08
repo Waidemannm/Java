@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDate;
 
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Integrante {
+public class Integrante extends RepresentationModel<Integrante> {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -24,6 +25,9 @@ public class Integrante {
     @ManyToMany
     @JoinColumn(name = "FK_BANDA")
     private Banda banda;
+    @NotEmpty(message = "O nome é um campo obrigatório")
+    @Size(min = 1, max = 100, message = "O tamanho mínimo dao nome deve ser de 1 caracter ou máximo de 100 caracteres")
+    private String nome;
     @Column(name = "DT_NASCIMENTO")
     @PastOrPresent(message = "A data de nascimento deve ser a data atual ou no passado.")
     private LocalDate dataNascimento;

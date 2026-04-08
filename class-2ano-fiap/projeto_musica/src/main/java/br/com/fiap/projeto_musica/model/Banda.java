@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDate;
 
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Banda {
+public class Banda extends RepresentationModel<Banda> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,9 +28,9 @@ public class Banda {
     private String nome;
     @PastOrPresent(message = "A data de função deve ser a data atual ou no passado.")
     @Column(name = "DT_FUNDACAO")
-    private LocalDate data_fundacao;
+    private LocalDate dataFundacao;
     @Column(name = "NM_PAIS")
     @Size(min = 1, max = 50, message = "O tamanho mínimo do nome da banda deve ser de 1 caracter ou máximo de 50 caracteres")
-    private String pais_origem;
+    private String paisOrigem;
     private Boolean ativa;
 }
