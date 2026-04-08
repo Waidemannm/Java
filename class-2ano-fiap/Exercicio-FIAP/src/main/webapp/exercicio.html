@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Exercícios</title>
+</head>
+<body>
+
+	<header style="text-align: center;">
+		<h1>Lista de Exercícios</h1>
+	</header>
+	<br><br>
+
+	<div style="text-align: center;">
+		<h3>1) Verificador de Ano Bissexto</h3>
+		<form action="BissextoServlet" method="get">
+			Ano: <input type="number" name="ano" min="1600" max="2100" step="1"><br><br>
+			<input type="submit" value="Verificar">
+		</form>
+	</div>
+
+	<br><br>
+
+	<div style="text-align: center;">
+		<h3>2) Tempo de Viagem em Corrida</h3>
+		<form action="CorridaServlet" method="get">
+			Distância (km): <input type="number" name="distancia" placeholder="Ex: 10"><br><br>
+			Velocidade média (km/h): <input type="number" name="velocidade" placeholder="Ex: 8"><br><br>
+			<input type="submit" value="Calcular">
+		</form>
+	</div>
+
+	<br><br>
+
+	<div style="text-align: center;">
+		<h3>3) Validador de CPF</h3>
+		<form action="CpfServlet" method="post">
+			CPF: <input type="text" name="cpf" max="11" placeholder="Digite o CPF (Somente números)"><br><br>
+			<input type="submit" value="Validar">
+		</form>
+	</div>
+
+	<br><br>
+
+	<div style="text-align: center;">
+		<h3>4) Gasto de Combustível</h3>
+		<form action="CombustivelServlest" method="get">
+			Distância (km): <input type="number" placeholder="Ex: 10" name="distancia"><br><br>
+			Consumo (km/l): <input type="number" placeholder="Ex: 10" name="consumo"><br><br>
+			Preço do combustível: <input type="number" step="any" placeholder="Ex: 10" name="preco"><br><br>
+			<input type="submit" value="Calcular">
+		</form>
+	</div>
+
+	<br><br>
+
+	<div style="text-align: center;">
+		<h3>5) Conversor de Moedas</h3>
+		<form action="MoedaServlet" method="post">
+			Valor: <input placeholder="Ex: 100" type="number" step="any" name="valor"><br><br>
+			Taxa de câmbio: <input placeholder="Ex: 5.13" type="number" step="any" name="taxa"><br><br>
+			<input type="submit" value="Converter">
+		</form>
+	</div>
+
+</body>
+</html>
