@@ -26,6 +26,7 @@ public class Integrante extends RepresentationModel<Integrante> {
     @JoinColumn(name = "FK_BANDA")
     private Banda banda;
     @NotEmpty(message = "O nome é um campo obrigatório")
+    @Column(name = "NM_INTEGRANTE")
     @Size(min = 1, max = 100, message = "O tamanho mínimo dao nome deve ser de 1 caracter ou máximo de 100 caracteres")
     private String nome;
     @Column(name = "DT_NASCIMENTO")

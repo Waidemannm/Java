@@ -10,21 +10,21 @@ import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
-public class IntegrandeDTO extends RepresentationModel<IntegrandeDTO> {
+public class IntegranteDTO extends RepresentationModel<IntegranteDTO> {
 
     private Banda banda;
     private String nome;
     private LocalDate dataNascimento;
     private String funcao;
 
-    public IntegrandeDTO(Banda banda, String nome, LocalDate dataNascimento, String funcao){
+    public IntegranteDTO(Banda banda, String nome, LocalDate dataNascimento, String funcao){
         this.banda = banda;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.funcao = funcao;
     }
 
-    public IntegrandeDTO(Integrante integrante){
+    public IntegranteDTO(Integrante integrante){
         this.banda = integrante.getBanda();
         this.nome = integrante.getNome();
         this.dataNascimento = integrante.getDataNascimento();
