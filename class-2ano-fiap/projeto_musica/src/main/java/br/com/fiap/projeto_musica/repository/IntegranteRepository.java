@@ -11,7 +11,7 @@ import java.util.List;
 public interface IntegranteRepository extends JpaRepository<Integrante, Long> {
 
     @Query("from Integrante inte where inte.nome <= :nome")
-    public IntegranteDTO getIntegranteByName(String nome);
+    public List<IntegranteDTO> findIntegranteByName(String nome);
 
 
     @Query(nativeQuery = true,
@@ -27,5 +27,5 @@ public interface IntegranteRepository extends JpaRepository<Integrante, Long> {
                     "(upper(band.NM_BANDA) like upper(concat('%',:substring,'%'))) or " +
                     "(upper(inte.NM_FUNCAO) like upper(concat('%',:substring,'%'))) " +
                     "order by inte.NM_INTEGRANTE asc")
-    public List<IntegranteProjection> getIntegranteBySubstring(String substring);
+    public List<IntegranteProjection> findIntegranteBySubstring(String substring);
 }

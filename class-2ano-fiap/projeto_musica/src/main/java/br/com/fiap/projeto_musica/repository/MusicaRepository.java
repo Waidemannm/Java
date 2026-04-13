@@ -11,7 +11,7 @@ import java.util.List;
 public interface MusicaRepository extends JpaRepository<Musica, Long> {
 
     @Query("from Musica mus where mus.duracao <= :duracao")
-    public List<MusicaDTO> getMusicByDuration(Double duracao);
+    public List<MusicaDTO> findMusicByDuration(Double duracao);
 
     @Query(nativeQuery = true,
             value = "select distinct " +
@@ -26,5 +26,5 @@ public interface MusicaRepository extends JpaRepository<Musica, Long> {
                     "or (upper(band.NM_BANDA) like upper(concat('%',:substring,'%'))) " +
                     "or (upper(inte.NM_INTEGRANTE) like upper(concat('%',:substring,'%'))) " +
                     "order by mus.NM_MUSICA asc")
-    public List<MusicaProjection> getMusicaBySubstring(String substring);
+    public List<MusicaProjection> findMusicaBySubstring(String substring);
 }
