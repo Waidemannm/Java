@@ -33,4 +33,11 @@ public class Banda extends RepresentationModel<Banda> {
     @Size(min = 1, max = 50, message = "O tamanho mínimo do nome da banda deve ser de 1 caracter ou máximo de 50 caracteres")
     private String paisOrigem;
     private Boolean ativa;
+
+    public void transferirBanda(Banda banda){
+        this.nome = banda.getNome();
+        this.dataFundacao = banda.getDataFundacao();
+        this.paisOrigem = banda.getPaisOrigem();
+        this.ativa = banda.getAtiva();
+    }
 }

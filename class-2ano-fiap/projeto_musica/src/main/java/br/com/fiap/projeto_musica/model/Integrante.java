@@ -36,4 +36,11 @@ public class Integrante extends RepresentationModel<Integrante> {
     @NotEmpty(message = "A função é um campo obrigatório")
     @Size(min = 1, max = 50, message = "O tamanho mínimo da titulo deve ser de 1 caracter ou máximo de 50 caracteres")
     private String funcao;
+
+    public void tranferirIntegrante(Integrante integrante){
+        this.banda = integrante.getBanda();
+        this.nome = integrante.getNome();
+        this.dataNascimento = integrante.getDataNascimento();
+        this.funcao = integrante.getFuncao();
+    }
 }
