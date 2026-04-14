@@ -117,7 +117,7 @@ public class IntegranteController {
     }
 
     @GetMapping(value =  "/{id}")
-    public Integrante retornarIntegrantePorID(Long id){
+    public Integrante retornarIntegrantePorID(@PathVariable Long id){
         Optional<Integrante> op = integranteCachingService.findById(id);
         if (op.isPresent()){
             Integrante integrante = op.get();

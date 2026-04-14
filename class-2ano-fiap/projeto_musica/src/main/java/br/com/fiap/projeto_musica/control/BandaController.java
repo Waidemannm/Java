@@ -239,6 +239,7 @@ public class BandaController {
         Optional<Banda> op = bandaRepository.findById(id);
         if (op.isPresent()){
             Banda bandaDeletada = op.get();
+            bandaRepository.delete(bandaDeletada);
             bandaDeletada.add(linkTo(methodOn(BandaController.class)
                     .retornarBandasPorNomeOtimizado(null))
                     .withRel("Gostaria de acessar o endpoint que retorna bandas por nome (OTIMIZADO)? Clique aqui!"));
@@ -350,7 +351,7 @@ public class BandaController {
         return banda;
     }
 
-    @PostMapping(value = "/atualizar/{id}")
+    @PutMapping(value = "/atualizar/{id}")
     public Banda atualizarBanda(@PathVariable Long id, @RequestBody @Valid Banda banda){
         Optional<Banda> op = bandaRepository.findById(id);
         if (op.isPresent()){
