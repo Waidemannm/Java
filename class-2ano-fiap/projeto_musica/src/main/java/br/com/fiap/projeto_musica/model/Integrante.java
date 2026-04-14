@@ -22,7 +22,7 @@ public class Integrante extends RepresentationModel<Integrante> {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "ID_INTEGRANTE")
     private Long id;
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "FK_BANDA")
     private Banda banda;
     @NotEmpty(message = "O nome é um campo obrigatório")
