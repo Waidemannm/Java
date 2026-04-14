@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class BandaDTO extends RepresentationModel<BandaDTO> {
 
+    private Long id;
     private String nome;
     private LocalDate dataFundacao;
     private String paisOrigem;
@@ -24,6 +25,7 @@ public class BandaDTO extends RepresentationModel<BandaDTO> {
     }
 
     public BandaDTO(Banda banda){
+        this.id = banda.getId();
         this.nome = banda.getNome();
         this.dataFundacao = banda.getDataFundacao();
         this.paisOrigem = banda.getPaisOrigem();
