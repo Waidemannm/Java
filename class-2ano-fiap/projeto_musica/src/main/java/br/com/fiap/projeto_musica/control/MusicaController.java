@@ -44,7 +44,7 @@ public class MusicaController {
     @Autowired
     private MusicaCachingService musicaCachingService;
 
-    @GetMapping(value = "/paginadas")
+    @GetMapping(value = "/paginados")
     public ResponseEntity<Page<MusicaDTO>> paginar(
             @RequestParam(value = "page", defaultValue = "0") Integer page,
             @RequestParam(value = "size", defaultValue = "2") Integer size){
@@ -320,7 +320,7 @@ public class MusicaController {
 
     }
 
-    @PostMapping(value = "/nova")
+    @PostMapping(value = "/novo")
     public Musica inserirMusica(@RequestBody @Valid Musica musica) {
         musicaRepository.save(musica);
         musicaCachingService.removerCache();
@@ -416,9 +416,9 @@ public class MusicaController {
         Optional<Musica> op = musicaRepository.findById(id);
 
         if (op.isPresent()) {
-            Musica musica_banco = op.get();
-            musica_banco.transferirMusica(musica);
-            musicaRepository.save(musica_banco);
+            Musica musicaBanco = op.get();
+            musicaBanco.transferirMusica(musica);
+            musicaRepository.save(musicaBanco);
             musicaCachingService.removerCache();
             musica.add(linkTo(methodOn(MusicaController.class).paginar(null, null))
                     .withRel("Gostaria de acessar o endpoint de músicas paginadas? Clique aqui!"));
@@ -451,7 +451,7 @@ public class MusicaController {
 
             musica.add(linkTo(methodOn(MusicaController.class).removerMusica(musica.getId()))
                     .withRel("Gostaria de remover a música " + musica.getTitulo() + "? Clique aqui!"));
-            return musica_banco;
+            return musicaBanco;
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
