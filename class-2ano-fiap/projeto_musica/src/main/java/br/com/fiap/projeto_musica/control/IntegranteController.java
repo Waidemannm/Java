@@ -198,8 +198,8 @@ public class IntegranteController {
     }
 
     @GetMapping(value = "/por_nome_otimizado")
-    public List<IntegranteDTO> retornarIntegrantesPorNomeOtimizado(@RequestParam String nome){
-        List<IntegranteDTO> integrantesOtimizados = integranteCachingService.findIntegranteByName(nome);
+    public List<Integrante> retornarIntegrantesPorNomeOtimizado(@RequestParam String nome){
+        List<Integrante> integrantesOtimizados = integranteCachingService.findIntegranteByName(nome);
         integrantesOtimizados.forEach(integrante -> {
             integrante.add(linkTo(methodOn(IntegranteController.class)
                     .retornarTodosIntegrantes())

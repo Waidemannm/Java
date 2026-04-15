@@ -229,12 +229,11 @@ public class MusicaController {
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-
     }
 
     @GetMapping(value = "/por_duracao_otimizado")
-    public List<MusicaDTO> retornarMusicasPorDuracaoOtimizado(@RequestParam Double duracao){
-        List<MusicaDTO> musicasDuracaoOtimizada = musicaCachingService.findMusicByDuration(duracao);
+    public List<Musica> retornarMusicasPorDuracaoOtimizado(@RequestParam Double duracao){
+        List<Musica> musicasDuracaoOtimizada = musicaCachingService.findMusicByDuration(duracao);
         musicasDuracaoOtimizada.forEach(musica -> {
             musica.add(linkTo(methodOn(MusicaController.class).paginar(null, null))
                     .withRel("Gostaria de acessar o endpoint de músicas paginadas? Clique aqui!"));

@@ -78,8 +78,8 @@ public class BandaController {
     }
 
     @GetMapping(value = "/por_nome_otimizado")
-    public List<BandaDTO> retornarBandasPorNomeOtimizado(@RequestParam String nome){
-        List<BandaDTO> bandasOtimizados = bandaCachingService.findBandaByName(nome);
+    public List<Banda> retornarBandasPorNomeOtimizado(@RequestParam String nome){
+        List<Banda> bandasOtimizados = bandaCachingService.findBandaByName(nome);
         bandasOtimizados.forEach(banda -> {
             banda.add(linkTo(methodOn(BandaController.class)
                     .retornarTodasBandas())
