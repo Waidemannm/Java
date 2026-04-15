@@ -1,6 +1,5 @@
 package br.com.fiap.projeto_musica.service;
 
-import br.com.fiap.projeto_musica.dto.IntegranteDTO;
 import br.com.fiap.projeto_musica.model.Integrante;
 import br.com.fiap.projeto_musica.projection.IntegranteProjection;
 import br.com.fiap.projeto_musica.repository.IntegranteRepository;
@@ -36,7 +35,7 @@ public class IntegranteCachingService {
     }
 
     @Cacheable(value = "retornarIntegrantePorNome", key = "#nome")
-    public List<IntegranteDTO> findIntegranteByName(String nome){
+    public List<Integrante> findIntegranteByName(String nome){
         return  integranteRepository.findIntegranteByName(nome);
     }
 

@@ -1,6 +1,5 @@
 package br.com.fiap.projeto_musica.service;
 
-import br.com.fiap.projeto_musica.dto.MusicaDTO;
 import br.com.fiap.projeto_musica.model.Musica;
 import br.com.fiap.projeto_musica.projection.MusicaProjection;
 import br.com.fiap.projeto_musica.repository.MusicaRepository;
@@ -41,7 +40,7 @@ public class MusicaCachingService {
     }
 
     @Cacheable(value = "retornarMusicasPorDuracao", key = "#duracao")
-    public List<MusicaDTO> findMusicByDuration(Double duracao){
+    public List<Musica> findMusicByDuration(Double duracao){
         return musicaRepository.findMusicByDuration(duracao);
     }
 
