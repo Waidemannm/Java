@@ -1,6 +1,5 @@
 package br.com.fiap.projeto_musica.repository;
 
-import br.com.fiap.projeto_musica.dto.IntegranteDTO;
 import br.com.fiap.projeto_musica.model.Integrante;
 import br.com.fiap.projeto_musica.projection.IntegranteProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,8 +9,8 @@ import java.util.List;
 
 public interface IntegranteRepository extends JpaRepository<Integrante, Long> {
 
-    @Query("from Integrante inte where inte.nome <= :nome")
-    public List<IntegranteDTO> findIntegranteByName(String nome);
+    @Query("from Integrante inte where upper(inte.nome) like upper(concat('%', :nome, '%'))")
+    public List<Integrante> findIntegranteByName(String nome);
 
 
     @Query(nativeQuery = true,

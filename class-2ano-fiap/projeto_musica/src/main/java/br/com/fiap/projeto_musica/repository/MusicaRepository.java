@@ -1,6 +1,5 @@
 package br.com.fiap.projeto_musica.repository;
 
-import br.com.fiap.projeto_musica.dto.MusicaDTO;
 import br.com.fiap.projeto_musica.model.Musica;
 import br.com.fiap.projeto_musica.projection.MusicaProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +10,7 @@ import java.util.List;
 public interface MusicaRepository extends JpaRepository<Musica, Long> {
 
     @Query("from Musica mus where mus.duracao <= :duracao")
-    public List<MusicaDTO> findMusicByDuration(Double duracao);
+    public List<Musica> findMusicByDuration(Double duracao);
 
     @Query(nativeQuery = true,
             value = "select distinct " +
