@@ -16,12 +16,12 @@ public interface IntegranteRepository extends JpaRepository<Integrante, Long> {
 
     @Query(nativeQuery = true,
             value = "select distinct " +
-                    "inte.NM_INTEGRANTE nome_integrante, band.NM_BANDA nome_banda, inte.NM_FUNCAO " +
+                    "inte.NM_INTEGRANTE as integranteNome, " +
+                    "band.NM_BANDA as bandaNome, " +
+                    "inte.NM_FUNCAO as integranteFuncao " +
                     "from T_INTEGRANTE inte " +
                     "inner join T_BANDA band " +
                     "on (inte.FK_BANDA = band.ID_BANDA) " +
-                    "inner join T_MUSICA mus " +
-                    "on (mus.FK_BANDA = band.ID_BANDA) " +
                     "where " +
                     "(upper(inte.NM_INTEGRANTE) like upper(concat('%',:substring,'%'))) or " +
                     "(upper(band.NM_BANDA) like upper(concat('%',:substring,'%'))) or " +

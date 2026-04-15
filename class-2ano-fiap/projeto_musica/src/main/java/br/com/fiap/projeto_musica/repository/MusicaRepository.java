@@ -15,7 +15,9 @@ public interface MusicaRepository extends JpaRepository<Musica, Long> {
 
     @Query(nativeQuery = true,
             value = "select distinct " +
-                    "mus.NM_MUSICA musica_titulo, band.NM_BANDA banda_nome, mus.VL_DURACAO musica_duracao " +
+                    "mus.NM_MUSICA as musicaTitulo, " +
+                    "band.NM_BANDA as bandaNome, " +
+                    "mus.VL_DURACAO as musicaDuracao " +
                     "from T_MUSICA mus " +
                     "inner join T_BANDA band " +
                     "on (mus.FK_BANDA = band.ID_BANDA) " +

@@ -13,8 +13,13 @@ public interface BandaRepository extends JpaRepository<Banda, Long> {
     @Query("from Banda band where band.nome <= :nome")
     public List<BandaDTO> findBandaByName(String nome);
 
-    @Query(nativeQuery = true, value = "select distinct band.NM_BANDA, band.NM_PAIS from T_BANDA band where (upper(band.NM_BANDA) like upper(concat('%',:substring,'%'))) " +
-            " or (upper(band.NM_PAIS) like upper(concat('%',:substring,'%'))) " +
-            "order by band.NM_BANDA asc")
-    public List<BandaProjection> findIntegranteBySubstring(String substring);
+    @Query(nativeQuery = true,
+            value = "select distinct " +
+                    "band.NM_BANDA as bandaNome, " +
+                    "band.NM_PAIS as paisOrigem " +
+                    "from T_BANDA band " +
+                    "where (upper(band.NM_BANDA) like upper(concat('%',:substring,'%'))) " +
+                    "or (upper(band.NM_PAIS) like upper(concat('%',:substring,'%'))) " +
+                    "order by band.NM_BANDA asc")
+    List<BandaProjection> findIntegranteBySubstring(String substring);
 }
