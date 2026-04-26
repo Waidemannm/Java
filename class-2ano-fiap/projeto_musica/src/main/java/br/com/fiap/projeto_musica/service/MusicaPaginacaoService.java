@@ -22,5 +22,4 @@ public class MusicaPaginacaoService {
                 paginasMusicas.map(musica -> new MusicaDTO(musica));
         return paginasMusicasDto;
     }
-
 }

@@ -4,13 +4,12 @@ import br.com.fiap.projeto_musica.model.Banda;
 import br.com.fiap.projeto_musica.model.Integrante;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
-public class IntegranteDTO extends RepresentationModel<IntegranteDTO> {
+public class IntegranteDTO  {
 
     private Long id;
     private Banda banda;
