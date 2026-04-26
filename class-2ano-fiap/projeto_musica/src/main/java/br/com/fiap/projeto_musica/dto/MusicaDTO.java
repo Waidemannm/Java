@@ -2,7 +2,6 @@ package br.com.fiap.projeto_musica.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.hateoas.RepresentationModel;
 
 import br.com.fiap.projeto_musica.model.Banda;
 import br.com.fiap.projeto_musica.model.GeneroEnum;
@@ -10,7 +9,7 @@ import br.com.fiap.projeto_musica.model.Musica;
 
 @Data
 @NoArgsConstructor
-public class MusicaDTO extends RepresentationModel<MusicaDTO> {
+public class MusicaDTO  {
 
     private Long id;
     private Banda banda;

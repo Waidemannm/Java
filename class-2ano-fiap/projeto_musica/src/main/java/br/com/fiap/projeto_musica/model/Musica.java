@@ -1,5 +1,6 @@
 package br.com.fiap.projeto_musica.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -8,14 +9,14 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.hateoas.RepresentationModel;
 
+@Schema(description = "Entidade que representa a tabela de Musica no DB")
 @Entity
 @Table(name = "T_MUSICA")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Musica extends RepresentationModel<Musica> {
+public class Musica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_MUSICA")
