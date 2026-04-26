@@ -1,6 +1,8 @@
 package br.com.fiap.projeto_musica.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
@@ -10,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+@Schema(description = "Entidade que representa a tabela de Integrante no DB")
 @Entity
 @Table(name = "T_INTEGRANTE")
 @Data
@@ -20,20 +23,25 @@ public class Integrante {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "ID_INTEGRANTE")
+    @Schema(description = "Atributo de indenticacao do Integrante", example="1")
     private Long id;
+    @Schema(description = "Atributo de nome da Banda", example = "Bruno Mars")
     @ManyToOne
     @JoinColumn(name = "FK_BANDA")
     private Banda banda;
     @NotEmpty(message = "O nome é um campo obrigatório")
     @Column(name = "NM_INTEGRANTE")
     @Size(min = 1, max = 100, message = "O tamanho mínimo dao nome deve ser de 1 caracter ou máximo de 100 caracteres")
+    @Schema(description = "Atributo do nome do Integrante", example = "Bruno")
     private String nome;
     @Column(name = "DT_NASCIMENTO")
     @PastOrPresent(message = "A data de nascimento deve ser a data atual ou no passado.")
+    @Schema(description = "Atributo da data de nascimento do integrante", example = "11/12/2000")
     private LocalDate dataNascimento;
     @Column(name = "NM_FUNCAO")
     @NotEmpty(message = "A função é um campo obrigatório")
     @Size(min = 1, max = 50, message = "O tamanho mínimo da titulo deve ser de 1 caracter ou máximo de 50 caracteres")
+    @Schema(description = "Atributo da função do integrante na banda",example = "Guitarrista")
     private String funcao;
 
     public void tranferirIntegrante(Integrante integrante){

@@ -17,23 +17,28 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Musica {
+    @Schema(description = "Atributo de indenticacao da Musica", example="1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_MUSICA")
     private Long id;
+    @Schema(description = "Atributo de nome da Banda", example = "Bruno Mars")
     @ManyToOne
     @JoinColumn(name = "FK_BANDA")
     private Banda banda;
+    @Schema(description = "Atributo do genero da Musica", example = "Rock")
     @Enumerated(EnumType.STRING)
     @Column(name = "NM_GENERO")
     private GeneroEnum genero;
     @NotEmpty(message = "O título é um campo obrigatório")
     @Size(min = 1, max = 50, message = "O tamanho mínimo do titulo deve ser de 1 caracter ou máximo de 50 caracteres")
     @Column(name = "NM_MUSICA")
+    @Schema(description = "Atributo do Titulo da Musica", example = "Run To the Hills")
     private String titulo;
     @DecimalMax(value = "60.0", message = "Tempo máximo de uma música é 60min.")
     @DecimalMin(value = "0.01", message = "Tempo mínimo de uma música é 60min.")
     @Column(name = "VL_DURACAO")
+    @Schema(description = "Atributo do tempo de duração da Musica", example = "4.01")
     private Double duracao;
 
     public void transferirMusica(Musica musica) {
