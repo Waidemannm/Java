@@ -5,7 +5,7 @@ API REST para gerenciamento de músicas, bandas e integrantes.
 Este repositório representa a evolução do projeto ao longo do tempo, contendo duas abordagens principais:
 
 - 🔗 Versão com HATEOAS (hipermídia) finalizado,
-- 📄 Versão com documentação via Swagger (versão final) iniciado
+- 📄 Versão com documentação via Swagger (versão final) finalizado
 
 ---
 
